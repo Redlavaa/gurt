@@ -35,8 +35,8 @@ async def profile(interaction: discord.Interaction, id: str):
     except Exception as e:
         await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
 
-@bot.tree.command(name="profileid", description="Replies with your user id")
-async def profileid(interaction: discord.Interaction, username: str):
+@bot.tree.command(name="fetchid", description="Replies with your user id")
+async def fetchid(interaction: discord.Interaction, username: str):
 
     await interaction.response.defer()
 
