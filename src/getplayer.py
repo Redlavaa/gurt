@@ -1,3 +1,4 @@
+import discord
 from playwright.async_api import async_playwright
 import json
 import time
@@ -23,6 +24,23 @@ async def get(id):
             end_time = time.perf_counter()
             execution_time = round((end_time - start_time) * 1000, 2)
 
-            return(name, networth, icon, execution_time)
+            embed = discord.Embed(
+            title="Game List",
+            color=discord.Color.blue()
+        )
+            embed.set_author(name=f"{name}'s Profile", icon_url=icon)
+            embed.set_thumbnail(url=icon)
+            embed.add_field(
+                name="Networth",
+                value=f"Networth: {networth}",
+                inline=False
+                )
+            embed.add_field(
+                name="Profile ID",
+                value=f"Profile ID: {id}",
+                inline=False
+                )
+
+            return(name, networth, icon, execution_time,embed)
         finally:
             await page.close()
