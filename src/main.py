@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 from gamelist import list
 from getplayer import get
-from getid import getid
+from getid import getuserid
 
 TOKEN = "MTQ2Nzk5OTA1ODkzMjI3MzE2NA.GZWU91.-Hmj9EJ7cs6GpmfgnJW2RNE_Rcw-5c7Hebs0uY"
 GUILD_ID = 1468373912931926142
@@ -41,7 +41,7 @@ async def profileid(interaction: discord.Interaction, username: str):
     await interaction.response.defer()
 
     try:
-        id, execution_time = await getid(username)
+        id, execution_time = await getuserid(username)
 
         await interaction.followup.send(f"ID: {id}, Execution Time: {execution_time}ms")
     except Exception as e:

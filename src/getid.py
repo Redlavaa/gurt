@@ -3,7 +3,7 @@ import json
 import time
 import discord
 
-async def getid(username):
+async def getuserid(username):
     async with async_playwright() as p:
         start_time = time.perf_counter()
         browser = await p.chromium.connect_over_cdp("http://localhost:9222")
