@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from gamelist import list
 from getplayer import get
+from getid import getid
 
 TOKEN = "MTQ2Nzk5OTA1ODkzMjI3MzE2NA.GZWU91.-Hmj9EJ7cs6GpmfgnJW2RNE_Rcw-5c7Hebs0uY"
 GUILD_ID = 1468373912931926142
@@ -34,8 +35,8 @@ async def profile(interaction: discord.Interaction, id: str):
     except Exception as e:
         await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
 
-@bot.tree.command(name="getid", description="Replies with your user id")
-async def getid(interaction: discord.Interaction, username: str):
+@bot.tree.command(name="profileid", description="Replies with your user id")
+async def profileid(interaction: discord.Interaction, username: str):
 
     await interaction.response.defer()
 
