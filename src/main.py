@@ -29,7 +29,7 @@ async def profile(interaction: discord.Interaction, id: str):
     await interaction.response.defer()
 
     try:
-        name, networth, icon, execution_time, embed = await get(id)
+        name, networth, icon, execution_time, embed= await get(id)
 
         await interaction.followup.send(embed=embed)
     except Exception as e:
