@@ -3,6 +3,7 @@ from discord.ext import commands
 from gamelist import list
 from getplayer import get
 from getid import getuserid
+from getlatestplayer import getlatest
 
 TOKEN = "MTQ2Nzk5OTA1ODkzMjI3MzE2NA.GZWU91.-Hmj9EJ7cs6GpmfgnJW2RNE_Rcw-5c7Hebs0uY"
 GUILD_ID = 1468373912931926142
@@ -44,6 +45,18 @@ async def fetchid(interaction: discord.Interaction, username: str):
         id, execution_time = await getuserid(username)
 
         await interaction.followup.send(f"ID: {id}, Execution Time: {execution_time}ms")
+    except Exception as e:
+        await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
+
+@bot.tree.command(name="latestplayer", description="Replies with the latest player")
+async def latestplayer(interaction: discord.Interaction):
+
+    await interaction.response.defer()
+
+    try:
+        name, id, icon, execution_time, embed = await getlatest()
+
+        await interaction.followup.send(embed=embed)
     except Exception as e:
         await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
 

@@ -18,12 +18,14 @@ async def list():
 
             names = []
             ids = []
+            players = []
 
             top = data["data"][:5]
 
             for item in top:
                 names.append(item["name"])
                 ids.append(str(item["id"]))
+                players.append(item["players"])
 
             end_time = time.perf_counter()
             execution_time = round((end_time - start_time) * 1000, 2)
