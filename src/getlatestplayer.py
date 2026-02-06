@@ -17,9 +17,9 @@ async def getlatest():
             raw_text = await page.inner_text("body")
             data = json.loads(raw_text)
             
-            name = data["users"][0]["username"]
-            id = data["users"][0]["id"]
-            icon = data["users"][0]["thumbnail"]["icon"]
+            name = data["users"]["username"]
+            id = data["users"]["id"]
+            icon = data["users"]["thumbnail"]["icon"]
             
             end_time = time.perf_counter()
             execution_time = round((end_time - start_time) * 1000, 2)
