@@ -6,19 +6,19 @@ from getplayer import get
 async def start_crawling():
     print("Crawling")
     while True:
-        with open("cache_profile.json", "rw") as f:
+        with open("cache_ids.json", "r") as f:
             cache = json.load(f)
-        ids_to_track = ["1", "2", "3"] 
+        ids_to_track = list(cache.keys()) 
 
         for user_id in ids_to_track:
             try:
-                name, networth, icon, exec_time = await get(user_id)
-                print(f"Updated Profile(s)")
+                iduser = await get(user_id)
+                print(f"Updated Profile(s) for {iduser}")
                 
                 await asyncio.sleep(5) 
                 
             except Exception as e:
-                print(f"Error crawling {user_id}: {e}")
+                print(f"Error crawling {iduser}: {e}")
 
         print("waiting 1 minute...")
         await asyncio.sleep(60)
