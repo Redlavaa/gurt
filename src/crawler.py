@@ -1,24 +1,17 @@
 import asyncio
 import json
 import time
-from getplayer import get
+from getonline import getonline
 
 async def start_crawling():
     print("Crawling")
     while True:
-        with open("cache_ids.json", "r") as f:
+        with open("src\cache\cache_playercount.json", "r") as f:
             cache = json.load(f)
-        ids_to_track = list(cache.keys()) 
 
-        for user_id in ids_to_track:
-            try:
-                iduser = await get(user_id)
-                print(f"Updated Profile(s) for {iduser}")
-                
-                await asyncio.sleep(5) 
-                
-            except Exception as e:
-                print(f"Error crawling {iduser}: {e}")
+            getonline(update_cache=cache)
+            f.seek(0)
+            json.dump(cache, f, indent=4)
 
         print("waiting 1 minute...")
         await asyncio.sleep(60)

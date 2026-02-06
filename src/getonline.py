@@ -19,13 +19,30 @@ async def getonline():
             locator = page.locator('div[class="row small my-1"]')
 
             all_texts = await locator.all_inner_texts()
+            multiline_string = all_texts[0]
+
+            lines = multiline_string.splitlines()
+
+            cleaned_lines = [
+                int(re.sub(r'\D', '', line)) 
+                for line in lines if any(char.isdigit() for char in line)
+            ]
+
+            ingame, online, total = cleaned_lines
             
             end_time = time.perf_counter()
             execution_time = round((end_time - start_time) * 1000, 2)
 
-            return(all_texts, execution_time)
+            embed = discord.Embed(
+            title="Online Players",
+            color=discord.Color.blue()
+            )
+
+            embed.add_field(name="🟢 In Game", value=ingame, inline=True)
+            embed.add_field(name="🔵 Online", value=online, inline=True)
+            embed.set_footer(text=f"Execution Time: {execution_time} ms")
+
+            return(embed, execution_time)
 
         finally:
             await page.close()
-
-print(asyncio.run(getonline()))
