@@ -38,8 +38,8 @@ async def getonline():
             color=discord.Color.blue()
             )
 
-            embed.add_field(name="🟢 In Game", value=ingame, inline=True)
-            embed.add_field(name="🔵 Online", value=online, inline=True)
+            embed.add_field(name="In Game", value=ingame, inline=True)
+            embed.add_field(name="Online", value=online, inline=True)
             embed.set_footer(text=f"Execution Time: {execution_time} ms")
 
             return(embed, execution_time)
