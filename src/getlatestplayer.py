@@ -12,10 +12,10 @@ async def getlatest():
         user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
         try:
-            await page.goto(f"https://api.polytoria.com/v1/users?sort=registeredAt&order=desc&limit=1", wait_until="domcontentloaded", timeout=100000)
+            response = await page.goto(f"https://api.polytoria.com/v1/users?sort=registeredAt&order=desc&limit=1", wait_until="domcontentloaded", timeout=100000)
 
             raw_text = await page.inner_text("body")
-            data = json.loads(raw_text)
+            data = await response.json()
             
             name = data["users"][0]["username"]
             id = data["users"][0]["id"]
