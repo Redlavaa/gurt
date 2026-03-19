@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from gamelist import list
+from getonline import getonline
 from getplayer import get
 from getid import getuserid
 from getlatestplayer import getlatest
@@ -60,12 +61,25 @@ async def latestplayer(interaction: discord.Interaction):
     except Exception as e:
         await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
 
+@bot.tree.command(name="playercount", description="Replies with total online players")
+async def playercount(interaction: discord.Interaction):
+
+    await interaction.response.defer()
+
+    try:
+        embed, execution_time = await getonline()
+
+        await interaction.followup.send(embed=embed)
+    except Exception as e:
+        await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
+
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user} (ID: {bot.user.id})")
     try:
         await bot.tree.sync()
         print("Slash commands synced")
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="for commands")) # don't include a help command as discord already shows the list when you do /
     except Exception as e:
         print("Sync failed:", type(e).__name__, e)
 

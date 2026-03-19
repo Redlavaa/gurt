@@ -38,7 +38,7 @@ async def get(id):
                 inline=False
                 )
             embed.add_field(
-                name="place Visits",
+                name="Place visits",
                 value=f"Place Visits: {placevisits}",
                 inline=False
                 )
