@@ -79,7 +79,7 @@ async def on_ready():
     try:
         await bot.tree.sync()
         print("Slash commands synced")
-        await bot.change_presence(activity=discord.Streaming(name="Use ?help for commands", url='https://polytoria.com/')) # ill add help later this is just testing statuses
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="for commands")) # don't include a help command as discord already shows the list when you do /
     except Exception as e:
         print("Sync failed:", type(e).__name__, e)
 

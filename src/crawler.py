@@ -1,24 +1,32 @@
 import asyncio
 import json
-import time
+from pathlib import Path
+
 from getplayer import get
+
+CACHE_FILE = Path(__file__).resolve().parent / "cache_ids.json"
+
 
 async def start_crawling():
     print("Crawling")
     while True:
-        with open("cache_ids.json", "r") as f:
+        # Load IDs to track from the cache file located next to this script
+        with CACHE_FILE.open("r", encoding="utf-8") as f:
             cache = json.load(f)
-        ids_to_track = list(cache.keys()) 
+
+        ids_to_track = list(cache.keys())
 
         for user_id in ids_to_track:
             try:
-                iduser = await get(user_id)
-                print(f"Updated Profile(s) for {iduser}")
-                
-                await asyncio.sleep(5) 
-                
+                # get(...) returns multiple values; we only need the name here
+                name, *_ = await get(user_id)
+                print(f"Updated profile for {name} (id {user_id})")
+
+                await asyncio.sleep(5)
+
             except Exception as e:
-                print(f"Error crawling {iduser}: {e}")
+                # Use user_id instead of possibly-unset local variables
+                print(f"Error crawling user id {user_id}: {e}")
 
         print("Waiting 1 minute...")
         await asyncio.sleep(60)
