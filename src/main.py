@@ -79,6 +79,7 @@ async def on_ready():
     try:
         await bot.tree.sync()
         print("Slash commands synced")
+        await bot.change_presence(activity=discord.Streaming(name="Use ?help for commands", url='https://polytoria.com/')) # ill add help later this is just testing statuses
     except Exception as e:
         print("Sync failed:", type(e).__name__, e)
 
