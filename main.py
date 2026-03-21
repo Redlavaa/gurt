@@ -5,6 +5,7 @@ from getonline import getonline
 from getplayer import get
 from getid import getuserid
 from getlatestplayer import getlatest
+from getguild import getguild
 
 TOKEN = "MTQ2Nzk5OTA1ODkzMjI3MzE2NA.GZWU91.-Hmj9EJ7cs6GpmfgnJW2RNE_Rcw-5c7Hebs0uY"
 GUILD_ID = 1468373912931926142
@@ -73,13 +74,26 @@ async def playercount(interaction: discord.Interaction):
     except Exception as e:
         await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
 
+@bot.tree.command(name="guild", description="Gives Guild Information")
+async def profile(interaction: discord.Interaction, id: str):
+
+    await interaction.response.defer()
+
+    try:
+        embed = await getguild(id)
+
+        await interaction.followup.send(embed=embed)
+    except Exception as e:
+        await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
+
+
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user} (ID: {bot.user.id})")
     try:
         await bot.tree.sync()
         print("Slash commands synced")
-        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="for commands")) # don't include a help command as discord already shows the list when you do /
+        await bot.change_presence(activity=discord.Game(name="waiting for a command"))
     except Exception as e:
         print("Sync failed:", type(e).__name__, e)
 
