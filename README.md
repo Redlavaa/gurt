@@ -1,5 +1,5 @@
 # gurt bot
-Gurt bot is a discord bot that lets you fetch polytoria info, the way I made this bot is one of the only ways to get information because of the current state of the servers.
+Gurt bot is a discord bot that lets you fetch polytoria info via the api and other methods.
 # How to use on Windows
 create a web browser
 ```powershell
