@@ -11,7 +11,7 @@ Launch the bot
 ```
 # Features
 | Command | Status | Priority |
-| -------- | ------- |----------|
+| -------- | ------- | ---------- |
 | /gamelist | Complete ✅ | - |
 | /guild | Complete ✅ | - |
 | /profile | Complete ✅ | - |
