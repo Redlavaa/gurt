@@ -79,7 +79,7 @@ async def playercount(interaction: discord.Interaction):
         await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
 
 @bot.tree.command(name="guild", description="Gives Guild Information")
-async def profile(interaction: discord.Interaction, id: str):
+async def guild(interaction: discord.Interaction, id: str):
 
     await interaction.response.defer()
 
