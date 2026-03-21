@@ -1,4 +1,6 @@
 import discord
+import os
+from dotenv import load_dotenv
 from discord.ext import commands
 from gamelist import list
 from getonline import getonline
@@ -7,7 +9,9 @@ from getid import getuserid
 from getlatestplayer import getlatest
 from getguild import getguild
 
-TOKEN = "MTQ2Nzk5OTA1ODkzMjI3MzE2NA.GZWU91.-Hmj9EJ7cs6GpmfgnJW2RNE_Rcw-5c7Hebs0uY"
+load_dotenv()
+
+TOKEN = os.getenv("TOKEN")
 GUILD_ID = 1468373912931926142
 
 intents = discord.Intents.default()

@@ -12,5 +12,5 @@ path = os.path.join(os.path.dirname(__file__), "..", ".env")
 
 with open(path, "w") as f:
     f.write(f"TOKEN={Token}\n")
-    f.write(f"CHROME_PATH={BrowserPath}\n")
-    f.write(f"DEBUG_PROFILE={TempPath}\n")
+    f.write(f"BROWSER_PATH={BrowserPath}\n")
+    f.write(f"TEMP_PATH={TempPath}\n")
