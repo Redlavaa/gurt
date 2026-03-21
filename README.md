@@ -10,13 +10,13 @@ Launch the bot
   py main.py
 ```
 # Features
-| Command | Status |
-| -------- | ------- |
-| /gamelist | Complete ✅ |
-| /guild | Complete ✅ |
-| /profile | Complete ✅ |
-| /fetchid | Complete ✅ |
-| /latestplayer | Complete ✅ |
-| /playercount | Complete ✅ |
-| /leaderboard | toddo 🔲 |
-| /guilds | todo 🔲 |
+| Command | Status | Priority |
+| -------- | ------- |----------|
+| /gamelist | Complete ✅ | - |
+| /guild | Complete ✅ | - |
+| /profile | Complete ✅ | - |
+| /fetchid | Complete ✅ | - |
+| /latestplayer | Complete ✅ | - |
+| /playercount | Complete ✅ | - |
+| /leaderboard | todo 🔲 | High |
+| /guilds | todo 🔲 | High |
