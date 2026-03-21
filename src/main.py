@@ -5,6 +5,7 @@ from getonline import getonline
 from getplayer import get
 from getid import getuserid
 from getlatestplayer import getlatest
+from getguild import getguild
 
 TOKEN = "MTQ2Nzk5OTA1ODkzMjI3MzE2NA.GZWU91.-Hmj9EJ7cs6GpmfgnJW2RNE_Rcw-5c7Hebs0uY"
 GUILD_ID = 1468373912931926142
@@ -72,6 +73,19 @@ async def playercount(interaction: discord.Interaction):
         await interaction.followup.send(embed=embed)
     except Exception as e:
         await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
+
+@bot.tree.command(name="guild", description="Gives Guild Information")
+async def profile(interaction: discord.Interaction, id: str):
+
+    await interaction.response.defer()
+
+    try:
+        embed = await getguild(id)
+
+        await interaction.followup.send(embed=embed)
+    except Exception as e:
+        await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
+
 
 @bot.event
 async def on_ready():

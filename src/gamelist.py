@@ -32,7 +32,7 @@ async def list():
             embed = discord.Embed(
             title="Game List",
             color=discord.Color.blue()
-        )
+            )
             
             for i in range(len(names)):
                 embed.add_field(
