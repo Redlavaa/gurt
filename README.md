@@ -9,4 +9,14 @@ Launch the bot
 ```shell
   py main.py
 ```
-
+# Features
+| Command | Status |
+| -------- | ------- |
+| /gamelist | Complete ✅ |
+| /guild | Complete ✅ |
+| /profile | Complete ✅ |
+| /fetchid | Complete ✅ |
+| /latestplayer | Complete ✅ |
+| /playercount | Complete ✅ |
+| /leaderboard | toddo 🔲 |
+| /guilds | todo 🔲 |
