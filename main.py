@@ -2,12 +2,13 @@ import discord
 import os
 from dotenv import load_dotenv
 from discord.ext import commands
-from gamelist import list
-from getonline import getonline
-from getplayer import get
-from getid import getuserid
-from getlatestplayer import getlatest
-from getguild import getguild
+from src.gamelist import list
+from src.getonline import getonline
+from src.getplayer import get
+from src.getid import getuserid
+from src.getlatestplayer import getlatest
+from src.getguild import getguild
+from scripts.launchbrowser import launch_browser
 
 load_dotenv()
 
@@ -98,6 +99,7 @@ async def on_ready():
         await bot.tree.sync()
         print("Slash commands synced")
         await bot.change_presence(activity=discord.Game(name="waiting for a command"))
+        launch_browser()
     except Exception as e:
         print("Sync failed:", type(e).__name__, e)
 

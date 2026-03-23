@@ -26,9 +26,16 @@ async def get(id):
             end_time = time.perf_counter()
             execution_time = round((end_time - start_time) * 1000, 2)
 
+            if membership == 'plusDeluxe':
+                embedcolor = discord.Color.purple
+            elif membership == 'plus':
+                discord.Color.teal
+            else:
+                discord.Color.blue
+
             embed = discord.Embed(
             title=f"{name}'s Profile",
-            color=discord.Color.blue()
+            color=embedcolor()
         )
             embed.set_thumbnail(url=icon)
             embed.set_footer(text=f"Execution Time: {execution_time}ms")
