@@ -9,4 +9,18 @@ Launch the bot
 ```shell
   py main.py
 ```
-
+# Features
+| Command | Status | Priority |
+| -------- | ------- | ---------- |
+| /gamelist | Complete ✅ | - |
+| /guild | Complete ✅ | - |
+| /profile | Complete ✅ | - |
+| /fetchid | Complete ✅ | - |
+| /latestplayer | Complete ✅ | - |
+| /playercount | Complete ✅ | - |
+| /leaderboard | todo 🔲 | Low |
+| /guilds | todo 🔲 | High |
+| /store | todo 🔲 | High |
+| /item | todo 🔲 | High |
+| /avatar | todo 🔲 | Low |
+| /download | todo 🔲 | Very Low |
