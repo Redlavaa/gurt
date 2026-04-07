@@ -99,7 +99,6 @@ async def on_ready():
         await bot.tree.sync()
         print("Slash commands synced")
         await bot.change_presence(activity=discord.Game(name="waiting for a command"))
-        launch_browser()
     except Exception as e:
         print("Sync failed:", type(e).__name__, e)
 

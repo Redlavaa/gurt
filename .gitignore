@@ -1,1 +1,4 @@
 .env*
+venv/
+playwright_user_data/
+__pycache__/

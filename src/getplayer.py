@@ -22,16 +22,19 @@ async def get(id):
             membership = data["membershipType"]
             placevisits = data["placeVisits"]
             icon = data["thumbnail"]["icon"]
+            staff = data["isStaff"]
             
             end_time = time.perf_counter()
             execution_time = round((end_time - start_time) * 1000, 2)
 
-            if membership == 'plusDeluxe':
+            if staff == True:
+                embedcolor = discord.Color.red
+            elif membership == 'plusDeluxe':
                 embedcolor = discord.Color.purple
             elif membership == 'plus':
                 discord.Color.teal
             else:
-                discord.Color.blue
+                discord.Color.light_grey
 
             embed = discord.Embed(
             title=f"{name}'s Profile",
