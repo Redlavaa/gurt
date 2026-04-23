@@ -2,9 +2,9 @@
 Gurt bot is a discord bot that lets you fetch polytoria info via the api and other methods.
 # How to use
 Put your discord bot token into a .env file
-'''text
+```
   TOKEN=
-'''
+```
 Launch the bot
 ```shell
   py main.py
