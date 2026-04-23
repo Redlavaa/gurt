@@ -2,7 +2,8 @@
 > [!WARNING]
 > This bot is in very early alpha. Expect things to be broken or missing.
 
-Gurt bot is a discord bot that lets you fetch polytoria info via the api.
+Gurt is a discord bot created for polytoria.
+The bot uses polytorias api to get information.
 # How to use
 Install modules
 ```shell
