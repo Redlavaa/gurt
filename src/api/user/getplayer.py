@@ -1,29 +1,25 @@
 import discord
-from playwright.async_api import async_playwright
 import json
 import time
+from curl_cffi.requests import AsyncSession
 
 async def get(id):
-    async with async_playwright() as p:
+    async with AsyncSession(impersonate="chrome") as s:
         start_time = time.perf_counter()
-        browser = await p.chromium.connect_over_cdp("http://localhost:9222")
-        context = browser.contexts[0]
-        page = await context.new_page()
-        user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-
+        
         try:
-            await page.goto(f"https://api.polytoria.com/v1/users/{id}", wait_until="domcontentloaded", timeout=100000)
+            url = f"https://api.polytoria.com/v1/users/{id}"
+            response = await s.get(url, timeout=10)
+            data = response.json()
 
-            raw_text = await page.inner_text("body")
-            data = json.loads(raw_text)
-            
+
             name = data["username"]
             networth = data["netWorth"]
             membership = data["membershipType"]
             placevisits = data["placeVisits"]
             icon = data["thumbnail"]["icon"]
             staff = data["isStaff"]
-            
+
             end_time = time.perf_counter()
             execution_time = round((end_time - start_time) * 1000, 2)
 
@@ -32,14 +28,14 @@ async def get(id):
             elif membership == 'plusDeluxe':
                 embedcolor = discord.Color.purple
             elif membership == 'plus':
-                discord.Color.teal
+                embedcolor = discord.Color.teal
             else:
-                discord.Color.light_grey
+                embedcolor = discord.Color.light_grey
 
             embed = discord.Embed(
-            title=f"{name}'s Profile",
-            color=embedcolor()
-        )
+                title=f"{name}'s Profile",
+                color=embedcolor()
+            )
             embed.set_thumbnail(url=icon)
             embed.set_footer(text=f"Execution Time: {execution_time}ms")
             embed.add_field(
@@ -51,8 +47,10 @@ async def get(id):
                 name="Place visits",
                 value=f"Place Visits: {placevisits}",
                 inline=False
-                )
+            )
 
-            return(name, networth, icon, execution_time, embed)
-        finally:
-            await page.close()
+            return (embed, execution_time)
+
+        except Exception as e:
+            print(f"Error: {e}")
+            return None

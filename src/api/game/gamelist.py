@@ -1,20 +1,15 @@
-from playwright.async_api import async_playwright
-import json
-import time
 import discord
+import time
+from curl_cffi.requests import AsyncSession
 
 async def list():
-    async with async_playwright() as p:
+    async with AsyncSession(impersonate="chrome") as s:
         start_time = time.perf_counter()
-        browser = await p.chromium.connect_over_cdp("http://localhost:9222")
-        context = browser.contexts[0]
-        page = await context.new_page()
-
+        
         try:
-            await page.goto(f"https://polytoria.com/api/places", wait_until="domcontentloaded", timeout=1000000)
-
-            raw_text = await page.inner_text("body")
-            data = json.loads(raw_text)
+            url = f"https://polytoria.com/api/places"
+            response = await s.get(url, timeout=10)
+            data = response.json()
 
             names = []
             ids = []
@@ -28,10 +23,10 @@ async def list():
 
             end_time = time.perf_counter()
             execution_time = round((end_time - start_time) * 1000, 2)
-
+        
             embed = discord.Embed(
-            title="Game List",
-            color=discord.Color.blue()
+                title="Game List",
+                color=discord.Color.blue()
             )
             
             for i in range(len(names)):
@@ -42,7 +37,8 @@ async def list():
                 )
                 embed.set_footer(text=f"Execution Time: {execution_time} ms")
 
-            return(names, ids, execution_time, embed)
+            return(embed)
 
-        finally:
-            await page.close()
+        except Exception as e:
+            print(f"Error: {e}")
+            return None
