@@ -5,6 +5,9 @@ import discord
 import asyncio
 import re
 
+# I dont know how to do this without playwright and it needs to be rewritten to use curl-cffi
+# if anyone wants to fix it pls do 
+
 async def getonline():
     async with async_playwright() as p:
         start_time = time.perf_counter()

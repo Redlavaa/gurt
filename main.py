@@ -72,7 +72,6 @@ async def playercount(interaction: discord.Interaction):
     await interaction.response.defer()
 
     try:
-
         await interaction.followup.send("Currently Broken Cause I dont wanna rewrite this, I will fix it later")
     except Exception as e:
         await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
