@@ -2,7 +2,7 @@ import discord
 import time
 from curl_cffi.requests import AsyncSession
 
-async def getlatest():
+async def list():
     async with AsyncSession(impersonate="chrome") as s:
         start_time = time.perf_counter()
         
