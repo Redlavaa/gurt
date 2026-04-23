@@ -1,9 +1,13 @@
 # gurt bot
 Gurt bot is a discord bot that lets you fetch polytoria info via the api and other methods.
 # How to use
+Install modules
+```shell
+  pip install pip install -r requirements.txt
+```
 Put your discord bot token into a .env file
 ```
-  TOKEN=
+  TOKEN='TOKEN HERE'
 ```
 Launch the bot
 ```shell
