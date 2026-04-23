@@ -1,6 +1,7 @@
 # gurt bot
-[!WARNING]
-This bot is in very early alpha. Expect things to be broken or missing.
+> [!WARNING]
+> This bot is in very early alpha. Expect things to be broken or missing.
+
 Gurt bot is a discord bot that lets you fetch polytoria info via the api.
 # How to use
 Install modules
