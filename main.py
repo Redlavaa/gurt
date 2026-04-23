@@ -2,13 +2,12 @@ import discord
 import os
 from dotenv import load_dotenv
 from discord.ext import commands
-from api.game.gamelist import list
-from api.user.getonline import getonline
-from api.user.getplayer import get
-from api.user.getid import getuserid
-from api.user.getlatestplayer import getlatest
-from api.guild.getguild import getguild
-from scripts.launchbrowser import launch_browser
+from src.api.game.gamelist import list
+from src.api.user.getonline import getonline
+from src.api.user.getplayer import get
+from src.api.user.getid import getuserid
+from src.api.user.getlatestplayer import getlatest
+from src.api.guild.getguild import getguild
 
 load_dotenv()
 
@@ -25,7 +24,7 @@ async def gamelist(interaction: discord.Interaction):
     await interaction.response.defer()
 
     try:
-        name, id, execution_time, embed = await list()
+        embed = await list()
 
         await interaction.followup.send(embed=embed)
     except Exception as e:
@@ -37,7 +36,7 @@ async def profile(interaction: discord.Interaction, id: str):
     await interaction.response.defer()
 
     try:
-        name, networth, icon, execution_time, embed= await get(id)
+        embed, execution_time = await get(id)
 
         await interaction.followup.send(embed=embed)
     except Exception as e:
@@ -61,7 +60,7 @@ async def latestplayer(interaction: discord.Interaction):
     await interaction.response.defer()
 
     try:
-        name, id, icon, execution_time, embed = await getlatest()
+        embed, execution_time = await getlatest()
 
         await interaction.followup.send(embed=embed)
     except Exception as e:
@@ -73,9 +72,8 @@ async def playercount(interaction: discord.Interaction):
     await interaction.response.defer()
 
     try:
-        embed, execution_time = await getonline()
 
-        await interaction.followup.send(embed=embed)
+        await interaction.followup.send("Currently Broken Cause I dont wanna rewrite this, I will fix it later")
     except Exception as e:
         await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
 

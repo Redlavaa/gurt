@@ -3,12 +3,12 @@ import json
 import time
 from curl_cffi.requests import AsyncSession
 
-async def get_data(id):
+async def get(id):
     async with AsyncSession(impersonate="chrome") as s:
         start_time = time.perf_counter()
         
         try:
-            url = f"https://api.polytoria.com/v1/ENDPOINT_HERE/{id}"
+            url = f"https://api.polytoria.com/v1/users/{id}"
             response = await s.get(url, timeout=10)
             data = response.json()
 
