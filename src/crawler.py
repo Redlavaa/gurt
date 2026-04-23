@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from datetime import datetime, timedelta
 
-from getplayer import get
+from api.user.getplayer import get
 
 CACHE_FILE = Path(__file__).resolve().parent / "cache_ids.json"
 

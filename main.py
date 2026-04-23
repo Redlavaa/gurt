@@ -2,12 +2,12 @@ import discord
 import os
 from dotenv import load_dotenv
 from discord.ext import commands
-from src.gamelist import list
-from src.getonline import getonline
-from src.getplayer import get
-from src.getid import getuserid
-from src.getlatestplayer import getlatest
-from src.getguild import getguild
+from api.game.gamelist import list
+from api.user.getonline import getonline
+from api.user.getplayer import get
+from api.user.getid import getuserid
+from api.user.getlatestplayer import getlatest
+from api.guild.getguild import getguild
 from scripts.launchbrowser import launch_browser
 
 load_dotenv()
