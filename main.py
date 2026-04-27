@@ -12,7 +12,6 @@ from src.api.guild.getguild import getguild
 load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
-GUILD_ID = 1468373912931926142
 
 intents = discord.Intents.default()
 intents.message_content = True
