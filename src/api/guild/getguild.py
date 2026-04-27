@@ -12,7 +12,7 @@ async def getguild(id):
             data = response.json()
 
             name = data["name"]
-            description = data["description"] if data["description"] else None
+            description = data["description"] if data["description"] else None # im not sure what this error checking is for but im just gonna keep it
             creator = data["name"]
             id = data["id"]
             thumbnail = data["thumbnail"]

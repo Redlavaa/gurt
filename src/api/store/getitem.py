@@ -14,7 +14,7 @@ async def getitem(id: int):
             end_time = time.perf_counter()
             execution_time = round((end_time - start_time) * 1000, 2)
 
-            name = data.get("name")
+            name = data.get("name") # use the () cause python is weird af
             id = data.get("id")
             icon = data.get("thumbnail")
             price = data.get("price")
@@ -30,7 +30,7 @@ async def getitem(id: int):
             embed.set_footer(text=f"Execution Time: {execution_time}ms")
             embed.add_field(
                 name="Info",
-                value=f"Creator: [{creator_name}](https://polytoria.com/u/{creator_name})\nID: {id}\nPrice: {price}\n",
+                value=f"Creator: [{creator_name}](https://polytoria.com/u/{creator_name})\nID: {id}\nPrice: {price}\n", # manually does the url thing cause idgaf
                 inline=False
             )
             embed.add_field(
