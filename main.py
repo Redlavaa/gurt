@@ -2,6 +2,7 @@ import discord
 import os
 from dotenv import load_dotenv
 from discord.ext import commands
+from src.api.store.getitem import getitem
 from src.api.game.gamelist import list
 from src.api.user.getonline import getonline
 from src.api.user.getplayer import get
@@ -82,6 +83,18 @@ async def guild(interaction: discord.Interaction, id: str):
 
     try:
         embed = await getguild(id)
+
+        await interaction.followup.send(embed=embed)
+    except Exception as e:
+        await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
+
+@bot.tree.command(name="item", description="Gives Item Information")
+async def item(interaction: discord.Interaction, id: str):
+
+    await interaction.response.defer()
+
+    try:
+        embed = await getitem(id)
 
         await interaction.followup.send(embed=embed)
     except Exception as e:

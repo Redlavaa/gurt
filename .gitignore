@@ -2,3 +2,7 @@
 venv/
 playwright_user_data/
 __pycache__/
+.env*
+venv/
+playwright_user_data/
+__pycache__/
