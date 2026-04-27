@@ -20,7 +20,7 @@ async def getguild(id):
             end_time = time.perf_counter()
             execution_time = round((end_time - start_time) * 1000, 2)
 
-            if description == "":
+            if description == "": # if the description is empty set it to none
                 description == "None"
 
             embed = discord.Embed(
