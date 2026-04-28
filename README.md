@@ -28,6 +28,6 @@ Launch the bot
 | /leaderboard | todo 🔲 | Low |
 | /guilds | todo 🔲 | High |
 | /store | todo 🔲 | High |
-| /item | todo 🔲 | High |
+| /item | Complete ✅ | - |
 | /avatar | todo 🔲 | Low |
 | /download | todo 🔲 | Very Low |
