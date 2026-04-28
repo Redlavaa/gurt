@@ -1,7 +1,9 @@
 import discord
 import os
 from dotenv import load_dotenv
+from typing import Literal
 from discord.ext import commands
+from discord import app_commands
 from src.api.store.getitem import getitem
 from src.api.game.gamelist import list
 from src.api.user.getonline import getonline
@@ -9,6 +11,7 @@ from src.api.user.getplayer import get
 from src.api.user.getid import getuserid
 from src.api.user.getlatestplayer import getlatest
 from src.api.guild.getguild import getguild
+from src.api.rankings.getleaderboard import getrankings
 
 load_dotenv()
 
@@ -100,6 +103,17 @@ async def item(interaction: discord.Interaction, id: str):
     except Exception as e:
         await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
 
+@bot.tree.command(name="leaderboard", description="Replies with the leaderboard")
+async def leaderboard(interaction: discord.Interaction, category: Literal["networth", "visits", "sales", "xp", "forumposts", "profileviews"], page: int): # ok if im gonna be honest I have no idea how the whole Literal thing works it just works dont question it
+
+    await interaction.response.defer()
+
+    try:
+        embed = await getrankings(category, page)
+
+        await interaction.followup.send(embed=embed)
+    except Exception as e:
+        await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
 
 @bot.event
 async def on_ready():
