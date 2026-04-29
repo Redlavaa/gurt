@@ -25,9 +25,8 @@ Launch the bot
 | /fetchid | Complete ✅ | - |
 | /latestplayer | Complete ✅ | - |
 | /playercount | Complete ✅ | - |
-| /leaderboard | Complete ✅ | Low |
+| /leaderboard | Complete ✅ | - |
+| /item | Complete ✅ | - |
+| /download | Complete ✅ | - |
 | /guilds | todo 🔲 | High |
 | /store | todo 🔲 | High |
-| /item | Complete ✅ | - |
-| /avatar | todo 🔲 | Low |
-| /download | todo 🔲 | Very Low |
