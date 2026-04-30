@@ -12,7 +12,7 @@ from src.api.user.getid import getuserid
 from src.api.user.getlatestplayer import getlatest
 from src.api.guild.getguild import getguild
 from src.api.rankings.getleaderboard import getrankings
-from src.api.misc.download import download
+from src.api.misc.download import downloadasset
 
 load_dotenv()
 
@@ -122,7 +122,7 @@ async def download(interaction: discord.Interaction, id: int):
     await interaction.response.defer()
 
     try:
-        embed, execution_time = await download(id)
+        embed = await downloadasset(id)
 
         await interaction.followup.send(embed=embed)
     except Exception as e:

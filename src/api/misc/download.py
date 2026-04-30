@@ -2,7 +2,7 @@ import discord
 import time
 from curl_cffi.requests import AsyncSession
 
-async def download(id: int):
+async def downloadasset(id: int): # had to name it download asset cause it caused an error
     async with AsyncSession(impersonate="chrome") as s:
         start_time = time.perf_counter()
         
@@ -26,7 +26,7 @@ async def download(id: int):
                 value=f"[Click here]({url})",
                 inline=False
             )
-            return (embed, execution_time)
+            return (embed)
 
         except Exception as e:
             print(f"Error: {e}")
