@@ -24,7 +24,7 @@ Launch the bot
 | /profile | Complete ✅ | - |
 | /fetchid | Complete ✅ | - |
 | /latestplayer | Complete ✅ | - |
-| /playercount | Complete ✅ | - |
+| /playercount | Broken ⚠️ | - |
 | /leaderboard | Complete ✅ | - |
 | /item | Complete ✅ | - |
 | /download | Complete ✅ | - |
