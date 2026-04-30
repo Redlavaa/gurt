@@ -30,3 +30,7 @@ Launch the bot
 | /download | Complete ✅ | - |
 | /guilds | todo 🔲 | High |
 | /store | todo 🔲 | High |
+
+# Todo
+
+[] - Move bot to cogs
