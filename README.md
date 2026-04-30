@@ -33,4 +33,4 @@ Launch the bot
 
 # Todo
 
-[] - Move bot to cogs
+- [ ] Move bot logic to Cogs for better organization
