@@ -34,3 +34,4 @@ Launch the bot
 # Todo
 
 - [ ] Move bot logic to Cogs for better organization
+- [ ] Add all commands
