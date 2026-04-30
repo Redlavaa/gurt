@@ -24,10 +24,14 @@ Launch the bot
 | /profile | Complete ✅ | - |
 | /fetchid | Complete ✅ | - |
 | /latestplayer | Complete ✅ | - |
-| /playercount | Complete ✅ | - |
-| /leaderboard | Complete ✅ | Low |
+| /playercount | Broken ⚠️ | - |
+| /leaderboard | Complete ✅ | - |
+| /item | Complete ✅ | - |
+| /download | Complete ✅ | - |
 | /guilds | todo 🔲 | High |
 | /store | todo 🔲 | High |
-| /item | Complete ✅ | - |
-| /avatar | todo 🔲 | Low |
-| /download | todo 🔲 | Very Low |
+
+# Todo
+
+- [ ] Move bot logic to Cogs for better organization
+- [ ] Add all commands
