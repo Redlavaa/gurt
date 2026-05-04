@@ -28,6 +28,7 @@ Launch the bot
 | /leaderboard | Complete ✅ | - |
 | /item | Complete ✅ | - |
 | /download | Complete ✅ | - |
+| /game | Complete ✅ | - |
 | /guilds | todo 🔲 | High |
 
 # Todo
