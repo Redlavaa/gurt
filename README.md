@@ -29,7 +29,6 @@ Launch the bot
 | /item | Complete ✅ | - |
 | /download | Complete ✅ | - |
 | /guilds | todo 🔲 | High |
-| /store | todo 🔲 | High |
 
 # Todo
 
