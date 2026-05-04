@@ -14,12 +14,12 @@ async def getgame(id: int):
             end_time = time.perf_counter()
             execution_time = round((end_time - start_time) * 1000, 2)
 
-            name = data["name"]
-            description = data["description"]
-            icon = data["thumbnail"]
-            visits = data["visits"]
-            playercount = data["playing"]
-            creator = data["creator"]["username"]
+            name = data.get("name")
+            description = data.get("description")
+            icon = data.get("thumbnail")
+            visits = data.get("visits")
+            playercount = data.get("playing")
+            creator = data["creator"]["name"]
 
 
             embed = discord.Embed(

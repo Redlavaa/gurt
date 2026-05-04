@@ -12,8 +12,8 @@ async def getguild(id):
             data = response.json()
 
             name = data["name"]
-            description = data["description"] if data["description"] else None # im not sure what this error checking is for but im just gonna keep it
-            creator = data["name"]
+            description = data["description"]
+            creator = data["creator"]["name"]
             id = data["id"]
             thumbnail = data["thumbnail"]
             
@@ -30,7 +30,7 @@ async def getguild(id):
 
             embed.set_thumbnail(url=thumbnail)
             embed.add_field(name="Description", value=description, inline=True)
-            embed.add_field(name="Creator", value=f"Username: {creator}\nId: {id}", inline=True)
+            embed.add_field(name="Creator", value=f"[{creator}](https://polytoria.com/u/{creator})", inline=True)
             embed.set_footer(text=f"Execution Time: {execution_time} ms")
 
             return(embed)
