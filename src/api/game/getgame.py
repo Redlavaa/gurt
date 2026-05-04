@@ -30,7 +30,7 @@ async def getgame(id: int):
             embed.set_footer(text=f"Execution Time: {execution_time}ms")
             embed.add_field(
                 name="Info",
-                value=f"Creator: {creator}\nVisits: {visits}\nPlaying: {playercount}",
+                value=f"Creator: [{creator}](https://polytoria.com/u/{creator})\nVisits: {visits}\nPlaying: {playercount}",
                 inline=False
                 )
             embed.add_field(
