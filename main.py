@@ -119,12 +119,12 @@ async def leaderboard(interaction: discord.Interaction, category: Literal["netwo
         await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
 
 @bot.tree.command(name="download", description="Downloads an asset")
-async def download(interaction: discord.Interaction, id: int, page: int):
+async def download(interaction: discord.Interaction, id: int):
 
     await interaction.response.defer()
 
     try:
-        embed = await downloadasset(id, page)
+        embed = await downloadasset(id)
 
         await interaction.followup.send(embed=embed)
     except Exception as e:
@@ -143,12 +143,12 @@ async def game(interaction: discord.Interaction, id: int):
         await interaction.followup.send(f"An error occurred: {type(e).__name__} - {e}")
 
 @bot.tree.command(name="owners", description="Gives Item Owners")
-async def owners(interaction: discord.Interaction, id: str):
+async def owners(interaction: discord.Interaction, id: str, page: int):
 
     await interaction.response.defer()
 
     try:
-        embed = await getowners(id, page=1)
+        embed = await getowners(id, page)
 
         await interaction.followup.send(embed=embed)
     except Exception as e:
